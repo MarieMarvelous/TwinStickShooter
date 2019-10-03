@@ -17,7 +17,7 @@ public class MyWorld extends World
     {    
         
         super(600, 400, 1); 
-        Man man = new Man();
-        addObject(man, 300, 200);
+        addObject(new Man(), 300, 200);
+        addObject(new Woman(), 200, 200);
     }
 }
