@@ -16,8 +16,9 @@ public class MyWorld extends World
     public MyWorld()
     {    
         
-        super(600, 400, 1); 
-        addObject(new Man(), 300, 200);
-        addObject(new Woman(), 200, 200);
+        super(800, 600, 1); 
+        addObject(new Man(), 400, 300);
+        //addObject(new Woman(), 200, 200);
+        addObject(new Butterfly(), 10, 590);
     }
 }

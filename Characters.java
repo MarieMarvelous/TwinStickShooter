@@ -28,7 +28,6 @@ public class Characters extends Actor
        
     }*/
     public void movement(String left, String right, String up, String down){
-        //move();
         if(Greenfoot.isKeyDown(left)){
             move(-1);
         }
