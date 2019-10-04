@@ -1,17 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Ladybug here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Ladybug extends Bug{
+    public int giveDamage(){
+        return 1;
+    }
 
-    /**
-     * Act - do whatever the Ladybug wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
     {
     move(5);

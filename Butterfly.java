@@ -6,12 +6,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Butterfly extends Bug
-{
-    /**
-     * Act - do whatever the Butterfly wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+public class Butterfly extends Bug{
+    public int giveDamage(){
+        return 2;
+    }
     public void act(){
         move(Greenfoot.getRandomNumber(5));
         if(Greenfoot.getRandomNumber(10) <=4){

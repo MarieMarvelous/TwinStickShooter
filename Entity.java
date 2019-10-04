@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Entity extends Actor{
+public abstract class Entity extends Actor{
     private static final double WALKING_SPEED = 5.0;
     
     public void act() 

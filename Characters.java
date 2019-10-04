@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class Characters here.
@@ -39,8 +40,11 @@ public class Characters extends Actor{
     }
 
     public void checkCollision(){
-        if(isTouching(Butterfly.class)) {
-            this.health--;
+        if(isTouching(Bug.class)){
+            List<Bug> listDamagingBugs=getIntersectingObjects(Bug.class);
+            for(Bug bug : listDamagingBugs){
+                health-=bug.giveDamage();
+            }
         }
         String leben = String.valueOf(health);
         //showColorText(leben, Color.YELLOW);
