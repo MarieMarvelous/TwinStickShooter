@@ -6,14 +6,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Woman extends Characters
-{
-    /**
-     * Act - do whatever the Woman wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-    super.movement("a", "d", "w", "s");   
+public class Woman extends Characters{
+    public Woman(){
+        super(100);
+    }
+    
+    public void act(){
+        super.movement("a", "d", "w", "s");   
+        super.checkCollision();
     }
 }

@@ -6,32 +6,27 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Characters extends Actor
-{
-    private static final double WALKING_SPEED = 10.0;
-    /**
-     * Act - do whatever the Characters wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        // Add your action code here.
+public class Characters extends Actor{
+    public int health;
+
+    public Characters(int health){
+        this.health=health;
+    }
+
+    public void showColorText(String text, Color color){
+        setImage(new GreenfootImage(text, 100, color, Color.BLACK));
+    }
+
+    public void act(){
+        //checkCollision();
+
     }    
-    /*public void move()
-    {
-        double angle = Math.toRadians( getRotation() );
-        int x = (int) Math.round(getX() + Math.cos(angle) * WALKING_SPEED);
-        int y = (int) Math.round(getY() + Math.sin(angle) * WALKING_SPEED);
-        
-        setLocation(x, y);
-        
-       
-    }*/
+
     public void movement(String left, String right, String up, String down){
         if(Greenfoot.isKeyDown(left)){
             move(-1);
         }
-        
+
         if(Greenfoot.isKeyDown(right)){
             move(1);
         }
@@ -41,8 +36,19 @@ public class Characters extends Actor
         if(Greenfoot.isKeyDown(down)){
             setLocation(getX(), getY()+1);   
         }
-        
+    }
+
+    public void checkCollision(){
+        if(isTouching(Butterfly.class)) {
+            this.health--;
+        }
+        String leben = String.valueOf(health);
+        //showColorText(leben, Color.YELLOW);
+        getWorld().showText(leben, 100, 100);
+        if(health == 0){
+            Greenfoot.stop();
+            getWorld().showText("Game Over", 320, 180);
+        }
     }
 }
-
 
