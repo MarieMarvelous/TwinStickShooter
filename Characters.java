@@ -23,19 +23,19 @@ public class Characters extends Actor{
 
     }    
 
-    public void movement(String left, String right, String up, String down){
+    public void movement(String left, String right, String up, String down, int speed){
         if(Greenfoot.isKeyDown(left)){
-            move(-1);
+            move(-speed);
         }
 
         if(Greenfoot.isKeyDown(right)){
-            move(1);
+            move(speed);
         }
         if(Greenfoot.isKeyDown(up)){
-            setLocation(getX(), getY()-1);
+            setLocation(getX(), getY()-speed);
         }
         if(Greenfoot.isKeyDown(down)){
-            setLocation(getX(), getY()+1);   
+            setLocation(getX(), getY()+speed);   
         }
     }
 

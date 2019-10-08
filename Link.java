@@ -7,6 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Link extends Characters{
+    public static final int SPEED=4;
     public Link(){
         super(100);
         GreenfootImage image =getImage();
@@ -15,7 +16,7 @@ public class Link extends Characters{
     }
     
     public void act(){        
-        super.movement("left", "right", "up", "down");
+        super.movement("a", "d", "w", "s", SPEED);
         super.checkCollision();
     }
 }
