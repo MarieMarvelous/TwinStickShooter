@@ -1,12 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Butterfly here.
+ * Write a description of class Chicken here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Butterfly extends Bug{
+public class Chicken extends Bug{
+    public Chicken(){
+        GreenfootImage image = getImage();
+        image.scale(30, 15);
+        setImage(image);
+    }
+
+    
     public int giveDamage(){
         return 2;
     }

@@ -8,13 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    public MyWorld() {
-        super(640, 360, 1);
+    public MyWorld(){
+        super(500, 500, 1);
         //super.setBackground(new GreenfootImage("", 0, Color.YELLOW, Color.WHITE));
         //super.repaint();
 
-        addObject(new Man(), 400, 300);
+        addObject(new Link(), 400, 300);
         //addObject(new Woman(), 200, 200);
-        addObject(new Butterfly(), 10, 340);
+        addObject(new Chicken(), 20, 320);
     }
 }
