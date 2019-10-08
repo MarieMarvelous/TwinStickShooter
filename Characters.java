@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Characters extends Actor{
     public int health;
-
+    
     public Characters(int health){
         this.health=health;
     }
@@ -19,7 +19,6 @@ public class Characters extends Actor{
     }
 
     public void act(){
-        //checkCollision();
 
     }    
 
@@ -37,6 +36,7 @@ public class Characters extends Actor{
         if(Greenfoot.isKeyDown(down)){
             setLocation(getX(), getY()+speed);   
         }
+        checkForShooting();
     }
 
     public void checkCollision(){
@@ -53,6 +53,29 @@ public class Characters extends Actor{
             Greenfoot.stop();
             getWorld().showText("Game Over", 320, 180);
         }
+    }
+    
+    public void shootArrow(Direction dir) {
+        getWorld().addObject(new Arrow(),this.getX(), this.getY());
+    }
+    
+    public void checkForShooting() {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if (mouse != null && Greenfoot.getMouseInfo().getButton() == 1) {
+            shootArrow(getMouseDirectionRelativeToChar());
+        }
+    }
+    
+    public Direction getMouseDirectionRelativeToChar() {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        return Direction.NORTH;
+    }
+    
+    private enum Direction {
+        NORTH,
+        EAST,
+        SOUTH,
+        WEST;
     }
 }
 
