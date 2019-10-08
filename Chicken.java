@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Chicken extends Bug{
     public Chicken(){
         GreenfootImage image = getImage();
-        image.scale(30, 15);
+        image.scale(28, 32);
         setImage(image);
     }
 

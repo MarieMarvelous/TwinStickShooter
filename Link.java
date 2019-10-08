@@ -7,11 +7,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Link extends Characters{
-    
     public Link(){
         super(100);
         GreenfootImage image =getImage();
-        image.scale(15, 20);
+        image.scale(30, 40);
         setImage(image);
     }
     
