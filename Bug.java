@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public abstract class Bug extends Entity{
     public abstract int giveDamage();
     public void act(){
+        super.act();
+        checkForArrowCollision();
     }    
     
     public void checkForArrowCollision() {

@@ -16,8 +16,8 @@ public class Link extends Characters {
     }
     
     public void act(){        
+        super.act();
         super.movement("a", "d", "w", "s", SPEED);
         super.checkCollision();
-        super.act();
     }
 }
