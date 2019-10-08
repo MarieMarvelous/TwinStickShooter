@@ -18,6 +18,7 @@ public class Chicken extends Bug{
         return 2;
     }
     public void act(){
+        checkForArrowCollision();
         move(Greenfoot.getRandomNumber(5));
         if(Greenfoot.getRandomNumber(10) <=4){
             turn(-10);

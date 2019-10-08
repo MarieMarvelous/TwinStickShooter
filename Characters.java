@@ -9,9 +9,15 @@ import java.util.List;
  */
 public class Characters extends Actor{
     public int health;
+    public boolean canShootAgain;
+    public int cooldown;
+    public static int defaultCooldown;
     
     public Characters(int health){
         this.health=health;
+        this.canShootAgain = true;
+        this.defaultCooldown = 10;
+        this.cooldown = this.defaultCooldown;
     }
 
     public void showColorText(String text, Color color){
@@ -19,7 +25,12 @@ public class Characters extends Actor{
     }
 
     public void act(){
-
+        if (cooldown > 0) {
+            cooldown--;
+        } else {
+            cooldown = this.defaultCooldown;
+            canShootAgain = true;
+        }
     }    
 
     public void movement(String left, String right, String up, String down, int speed){
@@ -56,7 +67,10 @@ public class Characters extends Actor{
     }
     
     public void shootArrow(Direction dir) {
-        getWorld().addObject(new Arrow(),this.getX(), this.getY());
+        if (canShootAgain) {
+            getWorld().addObject(new Arrow(dir),this.getX(), this.getY());
+            canShootAgain = false;
+        }
     }
     
     public void checkForShooting() {
@@ -68,14 +82,7 @@ public class Characters extends Actor{
     
     public Direction getMouseDirectionRelativeToChar() {
         MouseInfo mouse = Greenfoot.getMouseInfo();
-        return Direction.NORTH;
-    }
-    
-    private enum Direction {
-        NORTH,
-        EAST,
-        SOUTH,
-        WEST;
+        return Direction.EAST;
     }
 }
 

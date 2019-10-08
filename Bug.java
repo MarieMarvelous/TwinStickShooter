@@ -10,4 +10,11 @@ public abstract class Bug extends Entity{
     public abstract int giveDamage();
     public void act(){
     }    
+    
+    public void checkForArrowCollision() {
+        if (isTouching(Arrow.class)) {
+            getWorld().removeObjects(getIntersectingObjects(Arrow.class));
+            getWorld().removeObject(this);
+        }
+    }
 }

@@ -7,6 +7,6 @@ public class Ladybug extends Bug{
 
     public void act() 
     {
-    move(5);
+        move(5);
     }  
 }

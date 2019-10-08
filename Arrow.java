@@ -8,12 +8,36 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Arrow extends Projectile
 {
-    /**
-     * Act - do whatever the Arrow wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private static final int SPEED = 15;
+    
+    public Arrow(Direction dir) {
+        this.dir = dir;
+        switch(dir) {
+            case NORTH:
+                setRotation(90);
+                break;
+            case EAST:
+                setRotation(180);
+                break;
+            case SOUTH:
+                setRotation(270);
+                break;
+            case WEST:
+                break;
+            default:
+                break;
+        }
+    }
+    
+    public int getSpeed() {
+        return SPEED;
+    }
+    
     public void act() 
     {
-        // Add your action code here.
+        moveStraight(getSpeed(), dir);
+        if (isAtEdge()) {
+            getWorld().removeObject(this);
+        }
     }    
 }
