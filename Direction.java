@@ -1,8 +1,7 @@
 /**
  * Describes the Direction a certain object is facing.
  */
-public enum Direction  
-{
+public enum Direction{
     NORTH,
     EAST,
     SOUTH,
