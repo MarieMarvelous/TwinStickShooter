@@ -17,6 +17,9 @@ public abstract class Projectile extends Entity
      */
     public void act() 
     {
-        
+        moveStraight(getSpeed(), dir);
+        if (isAtEdge()) {
+            getWorld().removeObject(this);
+        }
     }    
 }

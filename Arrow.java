@@ -35,9 +35,6 @@ public class Arrow extends Projectile
     
     public void act() 
     {
-        moveStraight(getSpeed(), dir);
-        if (isAtEdge()) {
-            getWorld().removeObject(this);
-        }
+        super.act();
     }    
 }

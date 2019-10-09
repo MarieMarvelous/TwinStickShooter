@@ -18,6 +18,7 @@ public class Chicken extends Bug{
         return 2;
     }
     public void act(){
+        super.act();
         move(Greenfoot.getRandomNumber(5));
         if(Greenfoot.getRandomNumber(10) <=4){
             turn(-10);
@@ -25,6 +26,5 @@ public class Chicken extends Bug{
         if(Greenfoot.getRandomNumber(10) >4){
             turn(10);
         }
-        super.act();
     }    
 }

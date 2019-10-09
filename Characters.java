@@ -76,13 +76,28 @@ public class Characters extends Actor{
     public void checkForShooting() {
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse != null && Greenfoot.getMouseInfo().getButton() == 1) {
-            shootArrow(getMouseDirectionRelativeToChar());
+            shootArrow(getMouseDirectionRelativeToChar(mouse));
         }
     }
     
-    public Direction getMouseDirectionRelativeToChar() {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        return Direction.EAST;
+    /**
+     * Math magic incoming :)
+     */
+    public Direction getMouseDirectionRelativeToChar(MouseInfo mouse) {
+        double atan2Value = Math.atan2(mouse.getX() - this.getX(), mouse.getY() - this.getY());
+        if (atan2Value < 0) {
+            if (atan2Value <= -2.3562) {
+                return Direction.NORTH;
+            } else {
+                return Direction.WEST;
+            }
+        } else {
+            if (atan2Value >= 0.7854) {
+                return Direction.EAST;
+            } else {
+                return Direction.SOUTH;
+            }
+        }
     }
 }
 
