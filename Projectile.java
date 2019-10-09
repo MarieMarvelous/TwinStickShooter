@@ -11,13 +11,14 @@ public abstract class Projectile extends Entity
     public abstract int getSpeed();
     
     public Direction dir;
+    public int angle;
     /**
      * Act - do whatever the Projectile wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        moveStraight(getSpeed(), dir);
+        move(getSpeed());
         if (isAtEdge()) {
             getWorld().removeObject(this);
         }

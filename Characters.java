@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
+import java.awt.Point;
 
 /**
  * Write a description of class Characters here.
@@ -65,10 +66,17 @@ public class Characters extends Actor{
             getWorld().showText("Game Over", 320, 180);
         }
     }
-    
-    public void shootArrow(Direction dir) {
+
+    /*public void shootArrow(Direction dir) { //For shooting in fixed directions
         if (canShootAgain) {
             getWorld().addObject(new Arrow(dir),this.getX(), this.getY());
+            canShootAgain = false;
+        }
+    }*/
+    
+    public void shootArrow(int angle) {
+        if (canShootAgain) {
+            getWorld().addObject(new Arrow(angle), this.getX(), this.getY());
             canShootAgain = false;
         }
     }
@@ -76,8 +84,15 @@ public class Characters extends Actor{
     public void checkForShooting() {
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse != null && Greenfoot.getMouseInfo().getButton() == 1) {
-            shootArrow(getMouseDirectionRelativeToChar(mouse));
+            shootArrow(getMouseDirection(mouse));
         }
+    }
+    
+    public int getMouseDirection(MouseInfo mouse) {
+        double deltaX = mouse.getX() - this.getX();
+        double deltaY = mouse.getY() - this.getY();
+        
+        return 90 - (int) (Math.atan2(deltaX, deltaY) * 57.3);
     }
     
     /**

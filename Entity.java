@@ -7,16 +7,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public abstract class Entity extends Actor{
-    private static final double WALKING_SPEED = 5.0;
     
     public void act()
     {
     }    
     
-    public void move(){
+    public void move(int amount){
         double angle = Math.toRadians(getRotation() );
-        int x = (int) Math.round(getX() + Math.cos(angle) * WALKING_SPEED);
-        int y = (int) Math.round(getY() + Math.sin(angle) * WALKING_SPEED);
+        int x = (int) Math.round(getX() + Math.cos(angle) * amount);
+        int y = (int) Math.round(getY() + Math.sin(angle) * amount);
         
         setLocation(x, y);
     }

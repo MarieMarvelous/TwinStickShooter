@@ -10,19 +10,29 @@ public class Arrow extends Projectile
 {
     private static final int SPEED = 15;
     
+    public Arrow(int angle) {
+        int adaptedAngle = angle;
+        this.angle = adaptedAngle;
+        setRotation(adaptedAngle);
+    }
+    
     public Arrow(Direction dir) {
         this.dir = dir;
         switch(dir) {
             case NORTH:
+                this.angle = 90;
                 setRotation(90);
                 break;
             case EAST:
+                this.angle = 180;
                 setRotation(180);
                 break;
             case SOUTH:
+                this.angle = 270;
                 setRotation(270);
                 break;
             case WEST:
+                this.angle = 0;
                 break;
             default:
                 break;
